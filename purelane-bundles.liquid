@@ -1,0 +1,822 @@
+<section id="bundles-{{ section.id }}" class="pl-bundles">
+
+  <div class="pl-bundles__inner">
+
+    <div class="pl-bundles__heading">
+      {% if section.settings.eyebrow != blank %}
+        <div class="pl-bundles__eyebrow">
+          {{ section.settings.eyebrow }}
+        </div>
+      {% endif %}
+
+      <h2>{{ section.settings.heading }}</h2>
+
+      <div class="pl-bundles__rule">
+        <span></span>
+        <b>⌁</b>
+        <span></span>
+      </div>
+
+      {% if section.settings.description != blank %}
+        <p>{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+
+
+    <div class="pl-bundles__grid">
+
+      <!-- ================= BUNDLE 1 ================= -->
+      <article class="pl-bundle-card">
+
+        <div class="pl-bundle-card__art">
+          <span class="pl-badge">MOST POPULAR</span>
+          <span class="pl-save">YOU SAVE ₹398</span>
+
+          <div class="pl-products">
+
+            {% if section.settings.product_1 != blank %}
+              {% assign p1 = section.settings.product_1 %}
+              {% if p1.featured_image %}
+                <img
+                  src="{{ p1.featured_image | image_url: width: 500 }}"
+                  alt="{{ p1.title | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            {% endif %}
+
+            {% if section.settings.product_2 != blank %}
+              {% assign p2 = section.settings.product_2 %}
+              {% if p2.featured_image %}
+                <img
+                  src="{{ p2.featured_image | image_url: width: 500 }}"
+                  alt="{{ p2.title | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            {% endif %}
+
+            {% if section.settings.product_3 != blank %}
+              {% assign p3 = section.settings.product_3 %}
+              {% if p3.featured_image %}
+                <img
+                  src="{{ p3.featured_image | image_url: width: 500 }}"
+                  alt="{{ p3.title | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            {% endif %}
+
+          </div>
+        </div>
+
+        <div class="pl-bundle-card__body">
+
+          <h3>{{ section.settings.bundle_1_title }}</h3>
+
+          <div class="pl-count">
+            {{ section.settings.bundle_1_count }}
+          </div>
+
+          <p class="pl-description">
+            {{ section.settings.bundle_1_description }}
+          </p>
+
+          <div class="pl-price">
+            <strong>₹{{ section.settings.bundle_1_price }}</strong>
+            <s>₹{{ section.settings.bundle_1_compare }}</s>
+            <span>SAVE ₹{{ section.settings.bundle_1_save }}</span>
+          </div>
+
+          <div class="pl-tax">
+            Inclusive of all taxes · COD available
+          </div>
+
+          <a
+            href="{{ section.settings.bundle_1_link }}"
+            class="pl-bundle-button"
+          >
+            {{ section.settings.button_text }}
+            <span>→</span>
+          </a>
+
+        </div>
+      </article>
+
+
+      <!-- ================= BUNDLE 2 ================= -->
+      <article class="pl-bundle-card">
+
+        <div class="pl-bundle-card__art">
+          <span class="pl-badge">POPULAR</span>
+          <span class="pl-save">YOU SAVE ₹448</span>
+
+          <div class="pl-products">
+
+            {% if section.settings.product_4 != blank %}
+              {% assign p4 = section.settings.product_4 %}
+              {% if p4.featured_image %}
+                <img
+                  src="{{ p4.featured_image | image_url: width: 500 }}"
+                  alt="{{ p4.title | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            {% endif %}
+
+            {% if section.settings.product_5 != blank %}
+              {% assign p5 = section.settings.product_5 %}
+              {% if p5.featured_image %}
+                <img
+                  src="{{ p5.featured_image | image_url: width: 500 }}"
+                  alt="{{ p5.title | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            {% endif %}
+
+            {% if section.settings.product_6 != blank %}
+              {% assign p6 = section.settings.product_6 %}
+              {% if p6.featured_image %}
+                <img
+                  src="{{ p6.featured_image | image_url: width: 500 }}"
+                  alt="{{ p6.title | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            {% endif %}
+
+          </div>
+        </div>
+
+        <div class="pl-bundle-card__body">
+
+          <h3>{{ section.settings.bundle_2_title }}</h3>
+
+          <div class="pl-count">
+            {{ section.settings.bundle_2_count }}
+          </div>
+
+          <p class="pl-description">
+            {{ section.settings.bundle_2_description }}
+          </p>
+
+          <div class="pl-price">
+            <strong>₹{{ section.settings.bundle_2_price }}</strong>
+            <s>₹{{ section.settings.bundle_2_compare }}</s>
+            <span>SAVE ₹{{ section.settings.bundle_2_save }}</span>
+          </div>
+
+          <div class="pl-tax">
+            Inclusive of all taxes · COD available
+          </div>
+
+          <a
+            href="{{ section.settings.bundle_2_link }}"
+            class="pl-bundle-button"
+          >
+            {{ section.settings.button_text }}
+            <span>→</span>
+          </a>
+
+        </div>
+      </article>
+
+
+      <!-- ================= BUNDLE 3 ================= -->
+      <article class="pl-bundle-card pl-bundle-card--featured">
+
+        <div class="pl-bundle-card__art">
+          <span class="pl-badge">BIGGEST SAVING</span>
+          <span class="pl-badge pl-badge--dark">BEST VALUE</span>
+
+          <div class="pl-products">
+
+            {% if section.settings.product_1 != blank %}
+              {% assign p1 = section.settings.product_1 %}
+              {% if p1.featured_image %}
+                <img
+                  src="{{ p1.featured_image | image_url: width: 500 }}"
+                  alt="{{ p1.title | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            {% endif %}
+
+            {% if section.settings.product_4 != blank %}
+              {% assign p4 = section.settings.product_4 %}
+              {% if p4.featured_image %}
+                <img
+                  src="{{ p4.featured_image | image_url: width: 500 }}"
+                  alt="{{ p4.title | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            {% endif %}
+
+            {% if section.settings.product_7 != blank %}
+              {% assign p7 = section.settings.product_7 %}
+              {% if p7.featured_image %}
+                <img
+                  src="{{ p7.featured_image | image_url: width: 500 }}"
+                  alt="{{ p7.title | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            {% endif %}
+
+          </div>
+        </div>
+
+        <div class="pl-bundle-card__body">
+
+          <h3>{{ section.settings.bundle_3_title }}</h3>
+
+          <div class="pl-count">
+            {{ section.settings.bundle_3_count }}
+          </div>
+
+          <p class="pl-description">
+            {{ section.settings.bundle_3_description }}
+          </p>
+
+          <div class="pl-price">
+            <strong>₹{{ section.settings.bundle_3_price }}</strong>
+            <s>₹{{ section.settings.bundle_3_compare }}</s>
+            <span>SAVE ₹{{ section.settings.bundle_3_save }}</span>
+          </div>
+
+          <div class="pl-tax">
+            Inclusive of all taxes · COD available
+          </div>
+
+          <a
+            href="{{ section.settings.bundle_3_link }}"
+            class="pl-bundle-button pl-bundle-button--dark"
+          >
+            {{ section.settings.button_text }}
+            <span>→</span>
+          </a>
+
+        </div>
+      </article>
+
+    </div>
+
+    <div class="pl-bundles__bottom">
+      SWIPE TO EXPLORE ALL BUNDLES →
+    </div>
+
+  </div>
+
+
+  <style>
+    #bundles-{{ section.id }} {
+      --pl-bg: #e8f8f3;
+      --pl-card: #edf8f8;
+      --pl-purple: #17112f;
+      --pl-muted: #687083;
+      --pl-green: #087d73;
+      --pl-lime: #7d9f45;
+      --pl-border: rgba(80, 110, 120, .18);
+
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.85), transparent 35%),
+        radial-gradient(circle at 80% 70%, rgba(130,220,195,.22), transparent 38%),
+        var(--pl-bg);
+
+      padding: 90px 30px 75px;
+      overflow:hidden;
+    }
+
+    #bundles-{{ section.id }} * {
+      box-sizing:border-box;
+    }
+
+    #bundles-{{ section.id }} .pl-bundles__inner {
+      max-width:1320px;
+      margin:0 auto;
+    }
+
+    #bundles-{{ section.id }} .pl-bundles__heading {
+      text-align:center;
+      max-width:900px;
+      margin:0 auto 55px;
+    }
+
+    #bundles-{{ section.id }} .pl-bundles__eyebrow {
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      color:#7c6d91;
+      margin-bottom:18px;
+    }
+
+    #bundles-{{ section.id }} h2 {
+      margin:0;
+      color:var(--pl-purple);
+      font-size:clamp(38px, 5vw, 64px);
+      line-height:.95;
+      font-weight:900;
+      letter-spacing:-2px;
+      text-transform:uppercase;
+    }
+
+    #bundles-{{ section.id }} .pl-bundles__rule {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+      margin:25px auto 22px;
+    }
+
+    #bundles-{{ section.id }} .pl-bundles__rule span {
+      width:90px;
+      height:1px;
+      background:rgba(80,70,120,.22);
+    }
+
+    #bundles-{{ section.id }} .pl-bundles__rule b {
+      color:#c98420;
+      font-size:20px;
+    }
+
+    #bundles-{{ section.id }} .pl-bundles__heading p {
+      margin:0;
+      color:#687083;
+      font-size:17px;
+      line-height:1.6;
+    }
+
+    #bundles-{{ section.id }} .pl-bundles__grid {
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:18px;
+    }
+
+    #bundles-{{ section.id }} .pl-bundle-card {
+      min-width:0;
+      background:rgba(241,250,250,.86);
+      border:1px solid var(--pl-border);
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:0 18px 45px rgba(70,100,105,.12);
+      display:flex;
+      flex-direction:column;
+    }
+
+    #bundles-{{ section.id }} .pl-bundle-card--featured {
+      border-color:#d4ae52;
+      box-shadow:0 20px 55px rgba(70,100,105,.18);
+    }
+
+    #bundles-{{ section.id }} .pl-bundle-card__art {
+      position:relative;
+      height:245px;
+      margin:12px 12px 0;
+      border:1px solid rgba(100,120,135,.15);
+      border-radius:22px;
+      background:
+        radial-gradient(circle at 50% 55%, rgba(255,255,255,.9), transparent 45%),
+        linear-gradient(135deg,#f9fcfc,#e8f1f5);
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    #bundles-{{ section.id }} .pl-badge,
+    #bundles-{{ section.id }} .pl-save {
+      position:absolute;
+      top:14px;
+      z-index:3;
+      border:1px solid rgba(205,157,69,.45);
+      border-radius:30px;
+      padding:7px 12px;
+      background:rgba(255,255,255,.85);
+      color:#73954a;
+      font-size:10px;
+      line-height:1;
+      font-weight:900;
+      letter-spacing:1.3px;
+      text-transform:uppercase;
+    }
+
+    #bundles-{{ section.id }} .pl-badge {
+      left:14px;
+    }
+
+    #bundles-{{ section.id }} .pl-save {
+      left:14px;
+      top:47px;
+    }
+
+    #bundles-{{ section.id }} .pl-badge--dark {
+      left:auto;
+      right:14px;
+      background:#087d73;
+      border-color:#087d73;
+      color:#fff;
+    }
+
+    #bundles-{{ section.id }} .pl-products {
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+      padding:35px 35px 15px;
+    }
+
+    #bundles-{{ section.id }} .pl-products img {
+      width:29%;
+      max-width:120px;
+      height:auto;
+      object-fit:contain;
+      filter:drop-shadow(0 14px 12px rgba(40,50,70,.18));
+    }
+
+    #bundles-{{ section.id }} .pl-products img:only-child {
+      width:36%;
+      max-width:150px;
+    }
+
+    #bundles-{{ section.id }} .pl-bundle-card__body {
+      padding:25px 26px 28px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+
+    #bundles-{{ section.id }} .pl-bundle-card h3 {
+      margin:0 0 6px;
+      color:var(--pl-purple);
+      font-size:23px;
+      line-height:1.05;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:-.4px;
+    }
+
+    #bundles-{{ section.id }} .pl-count {
+      color:#687083;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      margin-bottom:16px;
+    }
+
+    #bundles-{{ section.id }} .pl-description {
+      margin:0;
+      color:#687083;
+      font-size:14px;
+      line-height:1.55;
+      min-height:66px;
+    }
+
+    #bundles-{{ section.id }} .pl-price {
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:9px;
+      margin-top:16px;
+    }
+
+    #bundles-{{ section.id }} .pl-price strong {
+      color:var(--pl-purple);
+      font-size:26px;
+      font-weight:900;
+    }
+
+    #bundles-{{ section.id }} .pl-price s {
+      color:#737a82;
+      font-size:13px;
+    }
+
+    #bundles-{{ section.id }} .pl-price span {
+      color:#6e9548;
+      background:#eef6df;
+      border:1px solid #d7e7b8;
+      border-radius:20px;
+      padding:5px 9px;
+      font-size:10px;
+      font-weight:900;
+    }
+
+    #bundles-{{ section.id }} .pl-tax {
+      margin-top:7px;
+      color:#737b82;
+      font-size:10px;
+      line-height:1.3;
+    }
+
+    #bundles-{{ section.id }} .pl-bundle-button {
+      width:100%;
+      margin-top:16px;
+      min-height:52px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      border:1px solid rgba(80,110,120,.2);
+      border-radius:30px;
+      background:rgba(255,255,255,.68);
+      color:#08645f;
+      text-decoration:none;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      transition:.2s ease;
+    }
+
+    #bundles-{{ section.id }} .pl-bundle-button:hover {
+      transform:translateY(-2px);
+      background:#fff;
+    }
+
+    #bundles-{{ section.id }} .pl-bundle-button--dark {
+      background:#087d73;
+      color:#fff;
+      border-color:#087d73;
+    }
+
+    #bundles-{{ section.id }} .pl-bundles__bottom {
+      text-align:center;
+      margin-top:45px;
+      color:#6b7275;
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:3px;
+      text-transform:uppercase;
+    }
+
+    @media (max-width: 859px) {
+
+      #bundles-{{ section.id }} {
+        padding:65px 16px 55px;
+      }
+
+      #bundles-{{ section.id }} .pl-bundles__heading {
+        margin-bottom:35px;
+      }
+
+      #bundles-{{ section.id }} .pl-bundles__grid {
+        display:flex;
+        overflow-x:auto;
+        scroll-snap-type:x mandatory;
+        gap:14px;
+        padding:4px 2px 18px;
+        scrollbar-width:none;
+      }
+
+      #bundles-{{ section.id }} .pl-bundles__grid::-webkit-scrollbar {
+        display:none;
+      }
+
+      #bundles-{{ section.id }} .pl-bundle-card {
+        flex:0 0 88%;
+        scroll-snap-align:start;
+      }
+
+      #bundles-{{ section.id }} .pl-bundle-card__art {
+        height:220px;
+      }
+
+      #bundles-{{ section.id }} .pl-bundle-card__body {
+        padding:22px;
+      }
+
+      #bundles-{{ section.id }} .pl-description {
+        min-height:auto;
+      }
+    }
+  </style>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Bundles",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Bundle & save"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Bundles"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Everything you need for a cleaner, greener home — together for less."
+    },
+
+    {
+      "type": "product",
+      "id": "product_1",
+      "label": "Bundle 1 - Product 1"
+    },
+    {
+      "type": "product",
+      "id": "product_2",
+      "label": "Bundle 1 - Product 2"
+    },
+    {
+      "type": "product",
+      "id": "product_3",
+      "label": "Bundle 1 - Product 3"
+    },
+
+    {
+      "type": "product",
+      "id": "product_4",
+      "label": "Bundle 2 - Product 1"
+    },
+    {
+      "type": "product",
+      "id": "product_5",
+      "label": "Bundle 2 - Product 2"
+    },
+    {
+      "type": "product",
+      "id": "product_6",
+      "label": "Bundle 2 - Product 3"
+    },
+
+    {
+      "type": "product",
+      "id": "product_7",
+      "label": "Bundle 3 - Product 1"
+    },
+    {
+      "type": "product",
+      "id": "product_8",
+      "label": "Bundle 3 - Product 2"
+    },
+    {
+      "type": "product",
+      "id": "product_9",
+      "label": "Bundle 3 - Product 3"
+    },
+    {
+      "type": "product",
+      "id": "product_10",
+      "label": "Bundle 3 - Product 4"
+    },
+    {
+      "type": "product",
+      "id": "product_11",
+      "label": "Bundle 3 - Product 5"
+    },
+
+    {
+      "type": "text",
+      "id": "bundle_1_title",
+      "label": "Bundle 1 Title",
+      "default": "Kitchen Essentials"
+    },
+    {
+      "type": "text",
+      "id": "bundle_1_count",
+      "label": "Bundle 1 Count",
+      "default": "3 products"
+    },
+    {
+      "type": "textarea",
+      "id": "bundle_1_description",
+      "label": "Bundle 1 Description",
+      "default": "Includes: Foaming Kitchen Cleaner, Dishwash Gel & Tap Cleaner. Everything for a sparkling kitchen, no need to pick separately."
+    },
+    {
+      "type": "text",
+      "id": "bundle_1_price",
+      "label": "Bundle 1 Price",
+      "default": "499"
+    },
+    {
+      "type": "text",
+      "id": "bundle_1_compare",
+      "label": "Bundle 1 Original Price",
+      "default": "897"
+    },
+    {
+      "type": "text",
+      "id": "bundle_1_save",
+      "label": "Bundle 1 Saving",
+      "default": "398"
+    },
+    {
+      "type": "url",
+      "id": "bundle_1_link",
+      "label": "Bundle 1 Link"
+    },
+
+    {
+      "type": "text",
+      "id": "bundle_2_title",
+      "label": "Bundle 2 Title",
+      "default": "Laundry Care Bundle"
+    },
+    {
+      "type": "text",
+      "id": "bundle_2_count",
+      "label": "Bundle 2 Count",
+      "default": "3 products"
+    },
+    {
+      "type": "textarea",
+      "id": "bundle_2_description",
+      "label": "Bundle 2 Description",
+      "default": "Includes: Laundry Detergent, Fabric Conditioner & Machine Cleaner Powder. Softer, fresher wash, all in one box."
+    },
+    {
+      "type": "text",
+      "id": "bundle_2_price",
+      "label": "Bundle 2 Price",
+      "default": "499"
+    },
+    {
+      "type": "text",
+      "id": "bundle_2_compare",
+      "label": "Bundle 2 Original Price",
+      "default": "947"
+    },
+    {
+      "type": "text",
+      "id": "bundle_2_save",
+      "label": "Bundle 2 Saving",
+      "default": "448"
+    },
+    {
+      "type": "url",
+      "id": "bundle_2_link",
+      "label": "Bundle 2 Link"
+    },
+
+    {
+      "type": "text",
+      "id": "bundle_3_title",
+      "label": "Bundle 3 Title",
+      "default": "Complete Home Bundle"
+    },
+    {
+      "type": "text",
+      "id": "bundle_3_count",
+      "label": "Bundle 3 Count",
+      "default": "5 products"
+    },
+    {
+      "type": "textarea",
+      "id": "bundle_3_description",
+      "label": "Bundle 3 Description",
+      "default": "Includes: Kitchen Cleaner, Laundry Detergent, Floor Cleaner, Toilet Cleaner & Handwash. Our biggest saving box."
+    },
+    {
+      "type": "text",
+      "id": "bundle_3_price",
+      "label": "Bundle 3 Price",
+      "default": "799"
+    },
+    {
+      "type": "text",
+      "id": "bundle_3_compare",
+      "label": "Bundle 3 Original Price",
+      "default": "1495"
+    },
+    {
+      "type": "text",
+      "id": "bundle_3_save",
+      "label": "Bundle 3 Saving",
+      "default": "696"
+    },
+    {
+      "type": "url",
+      "id": "bundle_3_link",
+      "label": "Bundle 3 Link"
+    },
+
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop bundle"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bundles"
+    }
+  ]
+}
+{% endschema %}

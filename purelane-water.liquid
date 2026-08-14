@@ -1,0 +1,135 @@
+<div class="purelane-water-bg" aria-hidden="true">
+
+  <div class="purelane-water-lines">
+    <svg viewBox="0 0 1800 1100"
+         preserveAspectRatio="xMidYMid slice"
+         xmlns="http://www.w3.org/2000/svg">
+
+      <defs>
+        <linearGradient id="purelaneWaterGradient"
+                        x1="0" y1="0"
+                        x2="1" y2="0">
+          <stop offset="0"
+                stop-color="#eafff4"
+                stop-opacity="0"/>
+
+          <stop offset=".18"
+                stop-color="#f2fff8"
+                stop-opacity=".95"/>
+
+          <stop offset=".5"
+                stop-color="#ffffff"
+                stop-opacity="1"/>
+
+          <stop offset=".82"
+                stop-color="#e6fbef"
+                stop-opacity=".9"/>
+
+          <stop offset="1"
+                stop-color="#eafff4"
+                stop-opacity="0"/>
+        </linearGradient>
+
+        <filter id="purelaneWaterNoise"
+                x="-12%"
+                y="-12%"
+                width="124%"
+                height="124%">
+
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.0022 0.019"
+            numOctaves="3"
+            seed="21"
+            result="noise"/>
+
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="noise"
+            scale="72"
+            xChannelSelector="R"
+            yChannelSelector="G"/>
+        </filter>
+      </defs>
+
+      <g filter="url(#purelaneWaterNoise)">
+
+        <path
+          d="M-100 240
+             Q100 200 300 240
+             T700 235
+             T1100 245
+             T1500 230
+             T1900 240"
+          stroke="url(#purelaneWaterGradient)"
+          stroke-width="5"
+          fill="none"
+          opacity=".38"/>
+
+        <path
+          d="M-100 390
+             Q120 350 340 395
+             T780 385
+             T1220 400
+             T1660 380
+             T2000 395"
+          stroke="url(#purelaneWaterGradient)"
+          stroke-width="3"
+          fill="none"
+          opacity=".30"/>
+
+        <path
+          d="M-100 560
+             Q120 520 340 565
+             T780 555
+             T1220 570
+             T1660 550
+             T2000 565"
+          stroke="url(#purelaneWaterGradient)"
+          stroke-width="6"
+          fill="none"
+          opacity=".32"/>
+
+        <path
+          d="M-100 730
+             Q120 690 340 735
+             T780 725
+             T1220 740
+             T1660 720
+             T2000 735"
+          stroke="url(#purelaneWaterGradient)"
+          stroke-width="4"
+          fill="none"
+          opacity=".25"/>
+
+        <path
+          d="M-100 900
+             Q120 860 340 905
+             T780 895
+             T1220 910
+             T1660 890
+             T2000 905"
+          stroke="url(#purelaneWaterGradient)"
+          stroke-width="6"
+          fill="none"
+          opacity=".30"/>
+
+      </g>
+
+    </svg>
+  </div>
+
+  <div class="purelane-water-glow"></div>
+
+  <div class="purelane-water-bubbles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+</div>

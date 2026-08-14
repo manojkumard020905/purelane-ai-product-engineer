@@ -1,0 +1,763 @@
+<section id="purelane-combos-{{ section.id }}" class="purelane-combos">
+  <div class="combos-wrap">
+
+    <div class="combos-heading">
+      {% if section.settings.eyebrow != blank %}
+        <div class="combos-eyebrow">{{ section.settings.eyebrow }}</div>
+      {% endif %}
+
+      <h2>{{ section.settings.heading }}</h2>
+
+      <div class="combos-rule">
+        <span></span>
+        <span class="leaf">⌁</span>
+        <span></span>
+      </div>
+
+      {% if section.settings.description != blank %}
+        <p>{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+
+    <div class="combos-slider">
+
+      {% for block in section.blocks %}
+        <article class="combo-card {% if block.settings.highlight %}combo-card-highlight{% endif %}" {{ block.shopify_attributes }}>
+
+          <div class="combo-art">
+
+            {% if block.settings.badge != blank %}
+              <span class="combo-badge">
+                {{ block.settings.badge }}
+              </span>
+            {% endif %}
+
+            {% if block.settings.right_badge != blank %}
+              <span class="combo-right-badge">
+                {{ block.settings.right_badge }}
+              </span>
+            {% endif %}
+
+            {% if block.settings.image != blank %}
+              <img
+                src="{{ block.settings.image | image_url: width: 900 }}"
+                alt="{{ block.settings.title | escape }}"
+                loading="lazy"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+              >
+            {% else %}
+              <div class="combo-placeholder">
+                <div class="fake-bottle">
+                  <div class="fake-pump"></div>
+                  <div class="fake-label"></div>
+                </div>
+              </div>
+            {% endif %}
+
+          </div>
+
+          <div class="combo-content">
+
+            <h3>{{ block.settings.title }}</h3>
+
+            {% if block.settings.product_count != blank %}
+              <div class="combo-count">
+                {{ block.settings.product_count }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.description != blank %}
+              <p class="combo-description">
+                {{ block.settings.description }}
+              </p>
+            {% endif %}
+
+            <div class="combo-price">
+              <strong>{{ block.settings.price }}</strong>
+
+              {% if block.settings.compare_price != blank %}
+                <del>{{ block.settings.compare_price }}</del>
+              {% endif %}
+
+              {% if block.settings.save_text != blank %}
+                <span>{{ block.settings.save_text }}</span>
+              {% endif %}
+            </div>
+
+            <div class="combo-tax">
+              Inclusive of all taxes · COD available
+            </div>
+
+            <a
+              class="combo-button"
+              href="{{ block.settings.button_link | default: '#' }}"
+            >
+              {{ block.settings.button_text }}
+              <span>→</span>
+            </a>
+
+          </div>
+
+        </article>
+      {% endfor %}
+
+    </div>
+
+    <div class="combo-scroll-hint">
+      SWIPE TO EXPLORE ALL {{ section.blocks.size }} COMBOS →
+    </div>
+
+  </div>
+</section>
+
+
+<style>
+
+#purelane-combos-{{ section.id }} {
+  --combo-bg: #dff5ee;
+  --combo-card: #e9f6f3;
+  --combo-dark: #17122f;
+  --combo-green: #007c73;
+  --combo-orange: #c77b17;
+  --combo-border: rgba(75, 110, 105, 0.20);
+
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,.65), transparent 35%),
+    radial-gradient(circle at 85% 80%, rgba(120,220,190,.20), transparent 40%),
+    var(--combo-bg);
+
+  padding: 80px 0 70px;
+  overflow:hidden;
+}
+
+#purelane-combos-{{ section.id }} .combos-wrap {
+  width:min(1280px, calc(100% - 40px));
+  margin:0 auto;
+}
+
+#purelane-combos-{{ section.id }} .combos-heading {
+  text-align:center;
+  max-width:850px;
+  margin:0 auto 48px;
+}
+
+#purelane-combos-{{ section.id }} .combos-eyebrow {
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#817894;
+  margin-bottom:18px;
+}
+
+#purelane-combos-{{ section.id }} h2 {
+  margin:0;
+  color:var(--combo-dark);
+  font-size:clamp(38px, 5vw, 64px);
+  line-height:.95;
+  font-weight:900;
+  letter-spacing:-2px;
+  text-transform:uppercase;
+}
+
+#purelane-combos-{{ section.id }} .combos-rule {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  margin:20px auto;
+}
+
+#purelane-combos-{{ section.id }} .combos-rule span:first-child,
+#purelane-combos-{{ section.id }} .combos-rule span:last-child {
+  width:90px;
+  height:1px;
+  background:rgba(80,70,100,.18);
+}
+
+#purelane-combos-{{ section.id }} .combos-rule .leaf {
+  color:#bd7519;
+  font-size:22px;
+  transform:rotate(-25deg);
+}
+
+#purelane-combos-{{ section.id }} .combos-heading p {
+  margin:0 auto;
+  max-width:650px;
+  color:#625a78;
+  font-size:18px;
+  line-height:1.55;
+}
+
+
+/* ================= SLIDER ================= */
+
+#purelane-combos-{{ section.id }} .combos-slider {
+  display:flex;
+  gap:16px;
+
+  overflow-x:auto;
+  overflow-y:hidden;
+
+  padding:8px 4px 18px;
+
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+
+  -webkit-overflow-scrolling:touch;
+
+  scrollbar-width:none;
+}
+
+#purelane-combos-{{ section.id }} .combos-slider::-webkit-scrollbar {
+  display:none;
+}
+
+
+/* ================= CARD ================= */
+
+#purelane-combos-{{ section.id }} .combo-card {
+  flex:0 0 calc((100% - 32px) / 3);
+
+  min-width:0;
+
+  display:flex;
+  flex-direction:column;
+
+  background:rgba(239,248,246,.88);
+
+  border:1px solid var(--combo-border);
+  border-radius:28px;
+
+  overflow:hidden;
+
+  scroll-snap-align:start;
+
+  box-shadow:
+    0 20px 45px rgba(43,68,72,.10);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+#purelane-combos-{{ section.id }} .combo-card:hover {
+  transform:translateY(-4px);
+  box-shadow:
+    0 25px 55px rgba(43,68,72,.16);
+}
+
+#purelane-combos-{{ section.id }} .combo-card-highlight {
+  border-color:#d4ad50;
+}
+
+
+/* ================= IMAGE ================= */
+
+#purelane-combos-{{ section.id }} .combo-art {
+  position:relative;
+
+  height:215px;
+  margin:12px 12px 0;
+
+  border-radius:22px;
+
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255,255,255,.95), rgba(231,241,242,.75));
+
+  border:1px solid rgba(95,110,120,.12);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  overflow:hidden;
+}
+
+#purelane-combos-{{ section.id }} .combo-art img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+
+
+/* ================= BADGES ================= */
+
+#purelane-combos-{{ section.id }} .combo-badge,
+#purelane-combos-{{ section.id }} .combo-right-badge {
+  position:absolute;
+  top:14px;
+
+  z-index:2;
+
+  padding:7px 12px;
+
+  border-radius:30px;
+
+  background:rgba(255,255,255,.90);
+
+  border:1px solid #e5cfa8;
+
+  color:#73984c;
+
+  font-size:10px;
+  line-height:1;
+
+  font-weight:900;
+  letter-spacing:1px;
+
+  text-transform:uppercase;
+}
+
+#purelane-combos-{{ section.id }} .combo-badge {
+  left:14px;
+}
+
+#purelane-combos-{{ section.id }} .combo-right-badge {
+  right:14px;
+
+  color:white;
+  background:#007b73;
+  border-color:#007b73;
+}
+
+
+/* ================= FALLBACK BOTTLE ================= */
+
+#purelane-combos-{{ section.id }} .combo-placeholder {
+  width:100%;
+  height:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+#purelane-combos-{{ section.id }} .fake-bottle {
+  position:relative;
+
+  width:55px;
+  height:110px;
+
+  border-radius:10px 10px 14px 14px;
+
+  background:linear-gradient(
+    90deg,
+    #7660c5,
+    #8f78d5,
+    #6f59ba
+  );
+
+  box-shadow:0 14px 20px rgba(50,40,100,.22);
+}
+
+#purelane-combos-{{ section.id }} .fake-pump {
+  position:absolute;
+
+  width:30px;
+  height:22px;
+
+  left:50%;
+  top:-18px;
+
+  transform:translateX(-50%);
+
+  border-radius:5px 5px 2px 2px;
+
+  background:#7561bd;
+}
+
+#purelane-combos-{{ section.id }} .fake-label {
+  position:absolute;
+
+  left:9px;
+  right:9px;
+
+  top:43px;
+
+  height:30px;
+
+  border-radius:3px;
+
+  background:#f7f5fb;
+}
+
+
+/* ================= CONTENT ================= */
+
+#purelane-combos-{{ section.id }} .combo-content {
+  padding:18px 18px 16px;
+
+  display:flex;
+  flex-direction:column;
+}
+
+#purelane-combos-{{ section.id }} .combo-content h3 {
+  margin:0;
+
+  color:var(--combo-dark);
+
+  font-size:22px;
+  line-height:1.08;
+
+  font-weight:900;
+  letter-spacing:-.4px;
+
+  text-transform:uppercase;
+}
+
+#purelane-combos-{{ section.id }} .combo-count {
+  margin-top:7px;
+
+  color:#6f7580;
+
+  font-size:12px;
+  font-weight:700;
+
+  text-transform:uppercase;
+  letter-spacing:.8px;
+}
+
+#purelane-combos-{{ section.id }} .combo-description {
+  margin:14px 0 0;
+
+  color:#68727a;
+
+  font-size:13px;
+  line-height:1.55;
+
+  min-height:0;
+}
+
+
+/* ================= PRICE ================= */
+
+/*
+  IMPORTANT:
+  No margin-top:auto here.
+  This keeps the price directly underneath
+  the description.
+*/
+
+#purelane-combos-{{ section.id }} .combo-price {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+
+  gap:9px;
+
+  margin-top:16px;
+}
+
+#purelane-combos-{{ section.id }} .combo-price strong {
+  color:var(--combo-dark);
+
+  font-size:27px;
+  line-height:1;
+
+  font-weight:900;
+}
+
+#purelane-combos-{{ section.id }} .combo-price del {
+  color:#7d8187;
+
+  font-size:12px;
+
+  font-weight:600;
+}
+
+#purelane-combos-{{ section.id }} .combo-price span {
+  color:#71984d;
+
+  background:#edf5df;
+
+  border:1px solid #d4e4bb;
+
+  border-radius:20px;
+
+  padding:6px 9px;
+
+  font-size:10px;
+  line-height:1;
+
+  font-weight:900;
+
+  text-transform:uppercase;
+}
+
+
+/* ================= TAX ================= */
+
+#purelane-combos-{{ section.id }} .combo-tax {
+  color:#747983;
+
+  font-size:9px;
+  line-height:1.4;
+
+  margin-top:6px;
+}
+
+
+/* ================= BUTTON ================= */
+
+#purelane-combos-{{ section.id }} .combo-button {
+  width:100%;
+
+  min-height:52px;
+
+  margin-top:16px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  border-radius:30px;
+
+  border:1px solid rgba(0,112,106,.20);
+
+  background:#fff;
+
+  color:#005e59;
+
+  text-decoration:none;
+
+  font-size:11px;
+  font-weight:900;
+
+  letter-spacing:2px;
+  text-transform:uppercase;
+
+  transition:
+    background .2s ease,
+    color .2s ease,
+    transform .2s ease;
+}
+
+#purelane-combos-{{ section.id }} .combo-button span {
+  font-size:17px;
+  line-height:1;
+}
+
+#purelane-combos-{{ section.id }} .combo-button:hover {
+  background:#007c73;
+  color:#fff;
+  transform:translateY(-1px);
+}
+
+
+/* Highlight button */
+
+#purelane-combos-{{ section.id }} .combo-card-highlight .combo-button {
+  background:#007c73;
+  color:#fff;
+  border-color:#007c73;
+}
+
+
+/* ================= SWIPE TEXT ================= */
+
+#purelane-combos-{{ section.id }} .combo-scroll-hint {
+  text-align:center;
+
+  margin-top:25px;
+
+  color:#6c7375;
+
+  font-size:10px;
+
+  font-weight:800;
+
+  letter-spacing:3px;
+
+  text-transform:uppercase;
+}
+
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1050px) {
+
+  #purelane-combos-{{ section.id }} .combo-card {
+    flex:0 0 calc((100% - 16px) / 2);
+  }
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+  #purelane-combos-{{ section.id }} {
+    padding:60px 0 50px;
+  }
+
+  #purelane-combos-{{ section.id }} .combos-wrap {
+    width:calc(100% - 24px);
+  }
+
+  #purelane-combos-{{ section.id }} .combos-heading {
+    margin-bottom:30px;
+  }
+
+  #purelane-combos-{{ section.id }} .combos-heading p {
+    font-size:15px;
+  }
+
+  #purelane-combos-{{ section.id }} .combos-slider {
+    gap:12px;
+
+    margin-right:-12px;
+
+    padding-right:25px;
+  }
+
+  #purelane-combos-{{ section.id }} .combo-card {
+    flex:0 0 86%;
+
+    border-radius:24px;
+  }
+
+  #purelane-combos-{{ section.id }} .combo-art {
+    height:205px;
+  }
+
+  #purelane-combos-{{ section.id }} .combo-content {
+    padding:17px 16px 15px;
+  }
+
+  #purelane-combos-{{ section.id }} .combo-content h3 {
+    font-size:20px;
+  }
+
+  #purelane-combos-{{ section.id }} .combo-description {
+    font-size:12px;
+  }
+
+  #purelane-combos-{{ section.id }} .combo-price strong {
+    font-size:25px;
+  }
+
+}
+
+
+/* ================= VERY SMALL MOBILE ================= */
+
+@media (max-width: 400px) {
+
+  #purelane-combos-{{ section.id }} .combo-card {
+    flex-basis:90%;
+  }
+
+}
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Best-selling Combos",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Purelane favourites"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Best-selling combos"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Smart combinations for a cleaner home, made with plant-based ingredients."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "combo",
+      "name": "Combo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Combo image"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Left badge",
+          "default": "Best seller"
+        },
+        {
+          "type": "text",
+          "id": "right_badge",
+          "label": "Right badge"
+        },
+        {
+          "type": "checkbox",
+          "id": "highlight",
+          "label": "Highlight this combo",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Combo title",
+          "default": "Kitchen Essentials"
+        },
+        {
+          "type": "text",
+          "id": "product_count",
+          "label": "Product count",
+          "default": "3 products"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Combo description",
+          "default": "Includes: Foaming Kitchen Cleaner, Dishwash Gel & Tap Cleaner. Everything for a sparkling kitchen."
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "₹499"
+        },
+        {
+          "type": "text",
+          "id": "compare_price",
+          "label": "Compare-at price",
+          "default": "₹897"
+        },
+        {
+          "type": "text",
+          "id": "save_text",
+          "label": "Saving text",
+          "default": "Save ₹398"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Shop bundle"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5
+}
+{% endschema %}

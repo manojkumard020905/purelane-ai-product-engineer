@@ -1,0 +1,373 @@
+<section id="purelane-floating-reviews-{{ section.id }}" class="pl-floating-reviews">
+
+  <div class="pl-review-proof">
+    <span>THAT'S WHAT THEY SAID</span>
+    <b>★★★★★</b>
+    <strong>4.8</strong>
+    <span>FROM 8,000+ REVIEWS</span>
+    <em>LOVED BY <strong>12 LAKH+</strong> HOMES</em>
+  </div>
+
+  <div class="pl-review-track-wrap">
+    <div class="pl-review-track">
+
+      <article class="pl-review">
+        <div class="stars">★★★★★</div>
+        <h3>BEST DISHWASH EVER</h3>
+        <p>
+          Our old dishwash left my help with dry, cracked skin.
+          That stopped completely after we switched.
+        </p>
+        <small>✓ PRIYA · DISHWASH GEL</small>
+      </article>
+
+      <article class="pl-review">
+        <div class="stars">★★★★★</div>
+        <h3>GREAT PRODUCT, GREAT PACKAGING</h3>
+        <p>
+          Very soft on hands with a lovely fragrance, and it feels
+          good to be using far less plastic.
+        </p>
+        <small>✓ SUNITA · LIQUID HANDWASH</small>
+      </article>
+
+      <article class="pl-review">
+        <div class="stars">★★★★★</div>
+        <h3>DOG FRIENDLY</h3>
+        <p>
+          We switched because chemical floor cleaners were setting
+          off my dog's allergies. No reactions since.
+        </p>
+        <small>✓ ROHIT S. · FLOOR CLEANER</small>
+      </article>
+
+      <article class="pl-review">
+        <div class="stars">★★★★★</div>
+        <h3>SPARKLING TAPS AGAIN</h3>
+        <p>
+          Hard water had ruined our bathroom fittings.
+          Two sprays and the scale wipes straight off, no scrubbing.
+        </p>
+        <small>✓ VERIFIED BUYER · TAP CLEANER</small>
+      </article>
+
+      <article class="pl-review">
+        <div class="stars">★★★★★</div>
+        <h3>WORKS LIKE A CHARM</h3>
+        <p>
+          Finally an eco option that cleans as well as the chemical
+          detergent I used for years, and it smells better.
+        </p>
+        <small>✓ ANITA · LAUNDRY DETERGENT</small>
+      </article>
+
+      <article class="pl-review">
+        <div class="stars">★★★★★</div>
+        <h3>BEST DISHWASH EVER</h3>
+        <p>
+          Our old dishwash left my hands dry and cracked.
+          This one cleaned beautifully without that problem.
+        </p>
+        <small>✓ PRIYA · DISHWASH GEL</small>
+      </article>
+
+      <!-- duplicate for seamless floating scroll -->
+      <article class="pl-review">
+        <div class="stars">★★★★★</div>
+        <h3>GREAT PRODUCT, GREAT PACKAGING</h3>
+        <p>
+          Very soft on hands with a lovely fragrance, and it feels
+          good to be using far less plastic.
+        </p>
+        <small>✓ SUNITA · LIQUID HANDWASH</small>
+      </article>
+
+      <article class="pl-review">
+        <div class="stars">★★★★★</div>
+        <h3>DOG FRIENDLY</h3>
+        <p>
+          We switched because chemical floor cleaners were setting
+          off my dog's allergies. No reactions since.
+        </p>
+        <small>✓ ROHIT S. · FLOOR CLEANER</small>
+      </article>
+
+    </div>
+  </div>
+
+</section>
+
+
+<style>
+
+#purelane-floating-reviews-{{ section.id }} {
+  position: relative;
+  z-index: 20;
+
+  /* FLOAT UP INTO HERO */
+  margin-top: -72px;
+
+  padding: 0 0 48px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(215,245,225,0) 0%,
+      rgba(190,232,207,.72) 45%,
+      #b8dfc9 100%
+    );
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   TOP SOCIAL PROOF
+========================= */
+
+#purelane-floating-reviews-{{ section.id }} .pl-review-proof {
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  color: #697777;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+
+  white-space: nowrap;
+}
+
+#purelane-floating-reviews-{{ section.id }} .pl-review-proof b {
+  color: #6b9d22;
+  letter-spacing: 2px;
+}
+
+#purelane-floating-reviews-{{ section.id }} .pl-review-proof > strong {
+  color: #d18a18;
+  font-size: 15px;
+  letter-spacing: 0;
+}
+
+#purelane-floating-reviews-{{ section.id }} .pl-review-proof em {
+  font-style: normal;
+  margin-left: 12px;
+}
+
+#purelane-floating-reviews-{{ section.id }} .pl-review-proof em strong {
+  color: #c8790e;
+  font-size: 14px;
+}
+
+
+/* =========================
+   FLOATING TRACK
+========================= */
+
+#purelane-floating-reviews-{{ section.id }} .pl-review-track-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+#purelane-floating-reviews-{{ section.id }} .pl-review-track {
+
+  display: flex;
+  gap: 12px;
+
+  width: max-content;
+
+  transform: translateX(-45px);
+
+  animation: purelaneReviewFloat 38s linear infinite;
+}
+
+#purelane-floating-reviews-{{ section.id }} .pl-review-track:hover {
+  animation-play-state: paused;
+}
+
+
+/* =========================
+   REVIEW CARD
+========================= */
+
+#purelane-floating-reviews-{{ section.id }} .pl-review {
+
+  flex: 0 0 244px;
+
+  min-height: 112px;
+
+  padding: 14px 16px 13px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255,255,255,.85);
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.78),
+      rgba(238,248,244,.68)
+    );
+
+  box-shadow:
+    0 10px 30px rgba(46,88,68,.08),
+    inset 0 1px 0 rgba(255,255,255,.8);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+#purelane-floating-reviews-{{ section.id }} .stars {
+  color: #6c9c21;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+
+  margin-bottom: 8px;
+}
+
+#purelane-floating-reviews-{{ section.id }} .pl-review h3 {
+
+  margin: 0 0 7px;
+
+  color: #282541;
+
+  font-size: 11px;
+  line-height: 1.2;
+
+  font-weight: 900;
+  letter-spacing: .2px;
+}
+
+#purelane-floating-reviews-{{ section.id }} .pl-review p {
+
+  margin: 0;
+
+  color: #66677b;
+
+  font-size: 10px;
+  line-height: 1.42;
+}
+
+#purelane-floating-reviews-{{ section.id }} .pl-review small {
+
+  display: block;
+
+  margin-top: 10px;
+
+  color: #6a8f37;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: .8px;
+}
+
+
+/* =========================
+   FLOATING ANIMATION
+========================= */
+
+@keyframes purelaneReviewFloat {
+
+  0% {
+    transform: translateX(-45px);
+  }
+
+  100% {
+    transform: translateX(calc(-50% - 6px));
+  }
+
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width: 900px) {
+
+  #purelane-floating-reviews-{{ section.id }} {
+    margin-top: -45px;
+  }
+
+  #purelane-floating-reviews-{{ section.id }} .pl-review {
+    flex-basis: 230px;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 600px) {
+
+  #purelane-floating-reviews-{{ section.id }} {
+
+    margin-top: -30px;
+
+    padding-bottom: 35px;
+
+  }
+
+  #purelane-floating-reviews-{{ section.id }} .pl-review-proof {
+
+    justify-content: flex-start;
+
+    padding-left: 18px;
+
+    overflow: hidden;
+
+    font-size: 8px;
+
+    gap: 7px;
+
+  }
+
+  #purelane-floating-reviews-{{ section.id }} .pl-review-proof em {
+    display: none;
+  }
+
+  #purelane-floating-reviews-{{ section.id }} .pl-review {
+    flex-basis: 225px;
+    min-height: 110px;
+  }
+
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media(prefers-reduced-motion: reduce) {
+
+  #purelane-floating-reviews-{{ section.id }} .pl-review-track {
+    animation: none;
+  }
+
+}
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Reviews",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Reviews"
+    }
+  ]
+}
+{% endschema %}

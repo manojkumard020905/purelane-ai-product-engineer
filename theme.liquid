@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title | default: 'Purelane — Plant-based homecare' }}</title>
+  <meta name="description" content="Plant-based homecare for kitchen, laundry, bathroom and hands. Free shipping across India.">
+  <meta name="theme-color" content="#eee7fb">
+  {{ content_for_header }}
+  {{ 'purelane.css' | asset_url | stylesheet_tag }}
+</head>
+<body>
+  {% render 'purelane-water' %}
+  {{ content_for_layout }}
+  <script src="{{ 'purelane.js' | asset_url }}" defer></script>
+</body>
+</html>
